@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "ES2023",
+        "module": "commonjs",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
+        "outDir": "./dist",
+        "moduleResolution": "Node",
+        "importsNotUsedAsValues": "remove",
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

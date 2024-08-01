@@ -1,0 +1,29 @@
+{
+  "name": "navilogix-server",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "autor": "Evgeniy Aleksandrovich Nekrasov",
+  "description": "Maritime Logistics Management System",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/index.ts | pino-pretty",
+    "format": "npx @biomejs/biome check --write src/"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "pino-pretty": "^11.2.2",
+    "tsx": "^4.16.5",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "envalid": "^8.0.0",
+    "express": "^4.19.2",
+    "http-status-codes": "^2.3.0",
+    "pino-http": "^10.2.0"
+  }
+}
