@@ -4,6 +4,7 @@ from fastapi import FastAPI
 
 from storeapi.database import database
 from storeapi.routers.test import router as test_router
+from storeapi.routers.ports import router as port_router
 
 
 @asynccontextmanager
@@ -22,3 +23,4 @@ app = FastAPI(lifespan=lifespan)
 
 
 app.include_router(test_router)
+app.include_router(port_router)
