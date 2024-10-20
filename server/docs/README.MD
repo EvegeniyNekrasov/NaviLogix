@@ -49,7 +49,7 @@ El objetivo es proporcionar una estructura sólida y escalable que permita a la 
 
 ### Diagrama ER
 
-![database scheme](db_scheme.png)
+![database scheme](database.png)
 
 ### Descripción de Tablas y Relaciones
 
