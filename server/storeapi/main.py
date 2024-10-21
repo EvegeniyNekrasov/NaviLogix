@@ -1,7 +1,9 @@
 from contextlib import asynccontextmanager
+import logging
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from storeapi.logging_conf import configure_logging
 
 from storeapi.database import database
 
@@ -27,9 +29,13 @@ from storeapi.routers.shipments import shipments_router
 from storeapi.routers.traking import traking_router
 from storeapi.routers.users import users_router
 
+logger = logging.getLogger(__name__)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    configure_logging()
+    logger.info("EXAMPLE MESSAGE")
     # conección a la bbdd
     await database.connect()
     # se para hasta que FastAPI le indica que siga
