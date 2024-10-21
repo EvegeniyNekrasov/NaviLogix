@@ -1,0 +1,7 @@
+2024-10-21T17-23-05.270Z | INFO     | storeapi.main:38 - EXAMPLE MESSAGE
+2024-10-21T17-23-05.272Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-23-19.733Z | INFO     | uvicorn.access:468 - 127.0.0.1:57308 - "GET /vessels HTTP/1.1" 200
+2024-10-21T17-23-36.310Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-23-36.414Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-23-36.417Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-23-36.420Z | INFO     | uvicorn.error:92 - Finished server process [95956]
