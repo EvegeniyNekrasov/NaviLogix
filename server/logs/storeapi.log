@@ -5,3 +5,116 @@
 2024-10-21T17-23-36.414Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
 2024-10-21T17-23-36.417Z | INFO     | uvicorn.error:76 - Application shutdown complete.
 2024-10-21T17-23-36.420Z | INFO     | uvicorn.error:92 - Finished server process [95956]
+2024-10-21T17-36-14.535Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-36-28.570Z | DEBUG    | storeapi.routers.vessels:44 - SELECT "Vessels".id, "Vessels".name, "Vessels".imo_number, "Vessels".mmsi_number, "Vessels".call_sign, "Vessels".flag, "Vessels".capacity, "Vessels".built_year, "Vessels".vessel_type 
+FROM "Vessels"
+2024-10-21T17-36-28.578Z | INFO     | uvicorn.access:468 - 127.0.0.1:57726 - "GET /vessels HTTP/1.1" 200
+2024-10-21T17-37-02.941Z | INFO     | uvicorn.access:468 - 127.0.0.1:57736 - "POST /create_vessels HTTP/1.1" 201
+2024-10-21T17-37-21.864Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-37-21.969Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-37-21.970Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-37-21.971Z | INFO     | uvicorn.error:92 - Finished server process [99477]
+2024-10-21T17-37-22.461Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-37-23.170Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-37-23.275Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-37-23.276Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-37-23.277Z | INFO     | uvicorn.error:92 - Finished server process [99652]
+2024-10-21T17-37-23.656Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-37-33.246Z | DEBUG    | storeapi.routers.vessels:28 - INSERT INTO "Vessels" (name, imo_number, mmsi_number, call_sign, flag, capacity, built_year, vessel_type) VALUES (:name, :imo_number, :mmsi_number, :call_sign, :flag, :capacity, :built_year, :vessel_type)
+2024-10-21T17-37-33.252Z | INFO     | uvicorn.access:468 - 127.0.0.1:57747 - "POST /create_vessels HTTP/1.1" 201
+2024-10-21T17-38-28.951Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-38-29.057Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-38-29.060Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-38-29.061Z | INFO     | uvicorn.error:92 - Finished server process [99661]
+2024-10-21T17-40-29.289Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-40-51.116Z | INFO     | uvicorn.access:468 - 127.0.0.1:57791 - "GET /vessels/30 HTTP/1.1" 404
+2024-10-21T17-41-51.352Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-41-51.459Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-41-51.461Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-41-51.461Z | INFO     | uvicorn.error:92 - Finished server process [551]
+2024-10-21T17-41-51.971Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-41-53.388Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-41-53.491Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-41-53.494Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-41-53.495Z | INFO     | uvicorn.error:92 - Finished server process [819]
+2024-10-21T17-41-53.890Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-42-07.643Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-42-07.746Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-42-07.748Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-42-07.749Z | INFO     | uvicorn.error:92 - Finished server process [842]
+2024-10-21T17-42-08.218Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-42-08.573Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-42-11.717Z | ERROR    | storeapi.routers.vessels:36 - Vessels con el id: 30 no encontrado
+2024-10-21T17-42-11.719Z | INFO     | uvicorn.access:468 - 127.0.0.1:57814 - "GET /vessels/30 HTTP/1.1" 404
+2024-10-21T17-43-43.229Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-43-43.340Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-43-43.343Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-43-43.343Z | INFO     | uvicorn.error:92 - Finished server process [904]
+2024-10-21T17-43-43.848Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-43-53.756Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-43-53.861Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-43-53.865Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-43-53.867Z | INFO     | uvicorn.error:92 - Finished server process [1193]
+2024-10-21T17-43-54.369Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-44-00.333Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-44-00.437Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-44-00.438Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-44-00.439Z | INFO     | uvicorn.error:92 - Finished server process [1230]
+2024-10-21T17-44-00.948Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-44-10.355Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-44-10.458Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-44-10.459Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-44-10.460Z | INFO     | uvicorn.error:92 - Finished server process [1264]
+2024-10-21T17-44-10.950Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-44-21.864Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-44-21.968Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-44-21.969Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-44-21.970Z | INFO     | uvicorn.error:92 - Finished server process [1298]
+2024-10-21T17-44-22.446Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-44-30.737Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-44-30.845Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-44-30.846Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-44-30.847Z | INFO     | uvicorn.error:92 - Finished server process [1344]
+2024-10-21T17-44-31.301Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-45-43.593Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-45-43.698Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-45-43.701Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-45-43.702Z | INFO     | uvicorn.error:92 - Finished server process [1380]
+2024-10-21T17-51-38.142Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-51-52.810Z | DEBUG    | storeapi.routers.vessels:29 - Creando nuevo vessels: {'name': 'some name 42', 'imo_number': '1646662', 'mmsi_number': '1366424', 'call_sign': 6.0, 'flag': 1.0, 'capacity': 3001, 'built_year': 2024, 'vessel_type': 'some type'}
+2024-10-21T17-51-52.820Z | DEBUG    | storeapi.routers.vessels:31 - INSERT INTO "Vessels" (name, imo_number, mmsi_number, call_sign, flag, capacity, built_year, vessel_type) VALUES (:name, :imo_number, :mmsi_number, :call_sign, :flag, :capacity, :built_year, :vessel_type)
+2024-10-21T17-51-52.830Z | INFO     | storeapi.routers.vessels:33 - Vessels creado con id: 4 - Código de estado: None
+2024-10-21T17-51-52.831Z | INFO     | uvicorn.access:468 - 127.0.0.1:58041 - "POST /create_vessels HTTP/1.1" 201
+2024-10-21T17-52-51.135Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-52-51.242Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-52-51.244Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-52-51.244Z | INFO     | uvicorn.error:92 - Finished server process [2888]
+2024-10-21T17-52-51.747Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-52-52.124Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-52-54.854Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-52-54.957Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-52-54.959Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-52-54.960Z | INFO     | uvicorn.error:92 - Finished server process [3069]
+2024-10-21T17-52-55.378Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-52-55.771Z | INFO     | uvicorn.error:62 - Application startup complete.
+2024-10-21T17-53-08.146Z | DEBUG    | storeapi.routers.vessels:29 - Creando nuevo vessels: {'name': 'some name 422', 'imo_number': '16466625', 'mmsi_number': '13626424', 'call_sign': 6.0, 'flag': 1.0, 'capacity': 3001, 'built_year': 2024, 'vessel_type': 'some type'}
+2024-10-21T17-53-08.151Z | INFO     | storeapi.routers.vessels:33 - Vessels creado con id: 5 - Código de estado: 201
+2024-10-21T17-53-08.152Z | INFO     | uvicorn.access:468 - 127.0.0.1:58054 - "POST /create_vessels HTTP/1.1" 201
+2024-10-21T17-53-18.534Z | DEBUG    | storeapi.routers.vessels:21 - Buscando vessels con id: 5
+2024-10-21T17-53-18.537Z | DEBUG    | storeapi.routers.vessels:23 - SELECT "Vessels".id, "Vessels".name, "Vessels".imo_number, "Vessels".mmsi_number, "Vessels".call_sign, "Vessels".flag, "Vessels".capacity, "Vessels".built_year, "Vessels".vessel_type 
+FROM "Vessels" 
+WHERE "Vessels".id = :id_1
+2024-10-21T17-53-18.542Z | DEBUG    | storeapi.routers.vessels:117 - Eliminando vessels con id: 5
+2024-10-21T17-53-18.543Z | DEBUG    | storeapi.routers.vessels:120 - DELETE FROM "Vessels" WHERE "Vessels".id = :id_1
+2024-10-21T17-53-18.546Z | INFO     | storeapi.routers.vessels:124 - Vessels con id: 5 eliminado - Código de estado: 200
+2024-10-21T17-53-18.547Z | INFO     | uvicorn.access:468 - 127.0.0.1:58057 - "DELETE /delete_vessels/5 HTTP/1.1" 200
+2024-10-21T17-54-18.283Z | DEBUG    | storeapi.routers.vessels:21 - Buscando vessels con id: 56
+2024-10-21T17-54-18.287Z | DEBUG    | storeapi.routers.vessels:23 - SELECT "Vessels".id, "Vessels".name, "Vessels".imo_number, "Vessels".mmsi_number, "Vessels".call_sign, "Vessels".flag, "Vessels".capacity, "Vessels".built_year, "Vessels".vessel_type 
+FROM "Vessels" 
+WHERE "Vessels".id = :id_1
+2024-10-21T17-54-18.293Z | WARNING  | storeapi.routers.vessels:108 - No se puede eliminar. Vessels con id: 56 no encontrado - Código de estado: 404
+2024-10-21T17-54-18.294Z | INFO     | uvicorn.access:468 - 127.0.0.1:58064 - "DELETE /delete_vessels/56 HTTP/1.1" 404
+2024-10-21T17-54-51.225Z | INFO     | uvicorn.error:262 - Shutting down
+2024-10-21T17-54-51.329Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2024-10-21T17-54-51.332Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2024-10-21T17-54-51.333Z | INFO     | uvicorn.error:92 - Finished server process [3098]
