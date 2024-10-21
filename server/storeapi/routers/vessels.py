@@ -32,3 +32,31 @@ async def get_vessel(vessel_id: int):
         raise HTTPException(status_code=404, detail=f"Vessel with id: {vessel_id} not found")
     
     return vessel
+
+@router.put("/update_vessels/{vessel_id}", response_model=Vessels, status_code=201)
+async def update_port(vessel_id: int, ports: VesselsIn):
+    executing_vessels = await find_vessel(vessel_id)
+
+    if not executing_vessels:
+        raise HTTPException(status_code=404, detail=f"Vessel with id: {vessel_id} not found")
+    
+    data = ports.model_dump()
+
+    query = vessels_table.update().where(vessels_table.c.id == vessel_id).values(**data)
+    await database.execute(query)
+
+    update_port = await find_vessel(vessel_id)
+    return update_port
+
+
+@router.delete("/delete_vessels/{vessel_id}", response_model=bool, status_code=201)
+async def delete_port(vessel_id: int):
+    executing_vessel = await find_vessel(vessel_id)
+
+    if not executing_vessel:
+        raise HTTPException(status_code=404, detail=f"Vessel with id: {vessel_id} not found")
+    
+    query = vessels_table.delete().where(vessels_table.c.id == vessel_id)
+    await database.execute(query)
+
+    return True
