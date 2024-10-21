@@ -7,11 +7,12 @@ export default defineConfig({
     plugins: [TanStackRouterVite(), react()],
     resolve: {
         alias: {
-            "@components": path.resolve(__dirname, "src/components"),
-            "@ui": path.resolve(__dirname, "src/ui"),
-            "@hooks": path.resolve(__dirname, "src/hooks"),
-            "@types": path.resolve(__dirname, "src/types"),
-            "@utils": path.resolve(__dirname, "src/utils"),
+            "@": path.resolve(__dirname, "src"),
+            // "@components": path.resolve(__dirname, "src/components"),
+            // "@ui": path.resolve(__dirname, "src/ui"),
+            // "@hooks": path.resolve(__dirname, "src/hooks"),
+            // "@types": path.resolve(__dirname, "src/types"),
+            // "@utils": path.resolve(__dirname, "src/utils"),
         },
     },
 });
