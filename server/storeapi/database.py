@@ -105,7 +105,6 @@ containers_table = Table(
     metadata,
     Column("id", Integer, primary_key=True),
     Column("container_number", String, unique=True, nullable=False),
-    Column("container_type", String),
     Column("status", String),
     Column("current_location_port_id", Integer, ForeignKey("Ports.id")),
     Column("shipment_id", Integer, ForeignKey("Shipments.id")),

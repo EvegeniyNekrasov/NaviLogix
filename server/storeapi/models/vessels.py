@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class VesselsIn(BaseModel):
     name: str
     imo_number: str
