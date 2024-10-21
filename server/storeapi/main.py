@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from storeapi.database import database
 from storeapi.routers.test import router as test_router
 from storeapi.routers.ports import router as port_router
+from storeapi.routers.vessels import router as vessel_router
 
 
 @asynccontextmanager
@@ -37,3 +38,4 @@ app.add_middleware(
 
 app.include_router(test_router)
 app.include_router(port_router)
+app.include_router(vessel_router)

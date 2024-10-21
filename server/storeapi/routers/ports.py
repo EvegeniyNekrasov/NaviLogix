@@ -9,7 +9,7 @@ async def fint_port(port_id: int):
     query = ports_table.select().where(ports_table.c.id == port_id)
     return await database.fetch_one(query)
 
-@router.post("/create_port", response_model=Ports, status_code=201)
+@router.post("/create_ports", response_model=Ports, status_code=201)
 async def create_ports(ports: PortsIn):
     data = ports.model_dump()
     query = ports_table.insert().values(**data)
@@ -31,7 +31,7 @@ async def get_all_ports():
     ports = await database.fetch_all(query)
     return ports
 
-@router.put("/update_port/{port_id}", response_model=Ports, status_code=201)
+@router.put("/update_ports/{port_id}", response_model=Ports, status_code=201)
 async def update_port(port_id: int, ports: PortsIn):
     executing_port = await fint_port(port_id)
 
@@ -47,7 +47,7 @@ async def update_port(port_id: int, ports: PortsIn):
     return update_port
 
 
-@router.delete("/delete_port/{port_id}", response_model=bool, status_code=201)
+@router.delete("/delete_ports/{port_id}", response_model=bool, status_code=201)
 async def delete_port(port_id: int):
     executing_port = await fint_port(port_id)
 
