@@ -4,9 +4,19 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from storeapi.database import database
-from storeapi.routers.test import router as test_router
-from storeapi.routers.ports import router as port_router
-from storeapi.routers.vessels import router as vessel_router
+
+from storeapi.database import (
+    ports_table,
+    vessels_table,
+    customers_table, 
+    database,
+)
+
+from storeapi.models.customers import (Customers, CustomersIn)
+from storeapi.models.ports import (Ports, PortsIn)
+from storeapi.models.vessels import (Vessels, VesselsIn)
+
+from storeapi.routers.generic_route import get_crud_router
 
 
 @asynccontextmanager
@@ -35,7 +45,30 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+customers_router = get_crud_router(
+    table=customers_table,
+    model_in=CustomersIn,
+    model_out=Customers,
+    prefix="customers",
+    database=database
+)
 
-app.include_router(test_router)
-app.include_router(port_router)
-app.include_router(vessel_router)
+ports_router = get_crud_router(
+    table=ports_table,
+    model_in=PortsIn,
+    model_out=Ports,
+    prefix="ports",
+    database=database
+)
+
+vessels_router = get_crud_router(
+    table=vessels_table,
+    model_in=VesselsIn,
+    model_out=Vessels,
+    prefix="vessels",
+    database=database
+)
+
+app.include_router(ports_router)
+app.include_router(vessels_router)
+app.include_router(customers_router)
