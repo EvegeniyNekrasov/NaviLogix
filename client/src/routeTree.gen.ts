@@ -17,6 +17,7 @@ import { Route as LoginImport } from './routes/login'
 
 // Create Virtual Routes
 
+const VoyagesLazyImport = createFileRoute('/voyages')()
 const VesselsLazyImport = createFileRoute('/vessels')()
 const TestLazyImport = createFileRoute('/test')()
 const RoutesLazyImport = createFileRoute('/routes')()
@@ -25,6 +26,12 @@ const CustomersLazyImport = createFileRoute('/customers')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const VoyagesLazyRoute = VoyagesLazyImport.update({
+  id: '/voyages',
+  path: '/voyages',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/voyages.lazy').then((d) => d.Route))
 
 const VesselsLazyRoute = VesselsLazyImport.update({
   id: '/vessels',
@@ -121,6 +128,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VesselsLazyImport
       parentRoute: typeof rootRoute
     }
+    '/voyages': {
+      id: '/voyages'
+      path: '/voyages'
+      fullPath: '/voyages'
+      preLoaderRoute: typeof VoyagesLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -134,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/routes': typeof RoutesLazyRoute
   '/test': typeof TestLazyRoute
   '/vessels': typeof VesselsLazyRoute
+  '/voyages': typeof VoyagesLazyRoute
 }
 
 export interface FileRoutesByTo {
@@ -144,6 +159,7 @@ export interface FileRoutesByTo {
   '/routes': typeof RoutesLazyRoute
   '/test': typeof TestLazyRoute
   '/vessels': typeof VesselsLazyRoute
+  '/voyages': typeof VoyagesLazyRoute
 }
 
 export interface FileRoutesById {
@@ -155,6 +171,7 @@ export interface FileRoutesById {
   '/routes': typeof RoutesLazyRoute
   '/test': typeof TestLazyRoute
   '/vessels': typeof VesselsLazyRoute
+  '/voyages': typeof VoyagesLazyRoute
 }
 
 export interface FileRouteTypes {
@@ -167,6 +184,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/test'
     | '/vessels'
+    | '/voyages'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -176,6 +194,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/test'
     | '/vessels'
+    | '/voyages'
   id:
     | '__root__'
     | '/'
@@ -185,6 +204,7 @@ export interface FileRouteTypes {
     | '/routes'
     | '/test'
     | '/vessels'
+    | '/voyages'
   fileRoutesById: FileRoutesById
 }
 
@@ -196,6 +216,7 @@ export interface RootRouteChildren {
   RoutesLazyRoute: typeof RoutesLazyRoute
   TestLazyRoute: typeof TestLazyRoute
   VesselsLazyRoute: typeof VesselsLazyRoute
+  VoyagesLazyRoute: typeof VoyagesLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -206,6 +227,7 @@ const rootRouteChildren: RootRouteChildren = {
   RoutesLazyRoute: RoutesLazyRoute,
   TestLazyRoute: TestLazyRoute,
   VesselsLazyRoute: VesselsLazyRoute,
+  VoyagesLazyRoute: VoyagesLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -226,7 +248,8 @@ export const routeTree = rootRoute
         "/ports",
         "/routes",
         "/test",
-        "/vessels"
+        "/vessels",
+        "/voyages"
       ]
     },
     "/": {
@@ -249,6 +272,9 @@ export const routeTree = rootRoute
     },
     "/vessels": {
       "filePath": "vessels.lazy.tsx"
+    },
+    "/voyages": {
+      "filePath": "voyages.lazy.tsx"
     }
   }
 }

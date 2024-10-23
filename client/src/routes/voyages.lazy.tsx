@@ -1,14 +1,15 @@
 import GenericTable from "@/components/Table";
 import { useQuery } from "@tanstack/react-query";
 import { createLazyFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
-export const Route = createLazyFileRoute("/routes")({
-    component: RoutesComponent,
+export const Route = createLazyFileRoute("/voyages")({
+    component: Voyages,
 });
 
 const getData = async () => {
     try {
-        const req = await fetch("http://127.0.0.1:8000/routes");
+        const req = await fetch("http://127.0.0.1:8000/voyages");
         if (!req.ok) throw new Error("some error");
         return await req.json();
     } catch (err) {
@@ -16,17 +17,18 @@ const getData = async () => {
     }
 };
 
-interface Routes {
+interface Voyages {
     id: number;
-    name: string;
-    origin_port_id: number;
-    destination_port_id: number;
-    distance: number;
+    vessel_id: number;
+    route_id: number;
+    departure_date: string;
+    arrival_date: string;
+    status: string;
 }
 
-function RoutesComponent() {
+function Voyages() {
     const { isError, isLoading, data } = useQuery({
-        queryKey: ["routes"],
+        queryKey: ["voyages"],
         queryFn: getData,
     });
 
@@ -34,9 +36,8 @@ function RoutesComponent() {
     if (isError) return <div>Error...</div>;
 
     return (
-        <div className="flex flex-col gap-5 p-6 ">
-            <span>Total routes: {data.length}</span>
-            <GenericTable<Routes> data={data} />
+        <div className="flex flex-col gap-5">
+            <GenericTable<Voyages> data={data} />
         </div>
     );
 }
