@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     useReactTable,
     ColumnDef,
@@ -14,22 +14,33 @@ import {
     ChevronRight,
     ChevronsLeft,
     ChevronsRight,
+    SquareX,
 } from "lucide-react";
 
 type GenericTableProps<TData extends object> = {
     data: TData[];
+    size?: number;
+    filter?: string;
 };
 
 // TODO: onClick handler to return lat, lon if passed object contains it
 
 function GenericTable<TData extends object>({
     data,
+    size,
+    filter,
 }: GenericTableProps<TData>) {
     const [pagination, setPagination] = React.useState<PaginationState>({
         pageIndex: 0,
-        pageSize: 5,
+        pageSize: size ? size : 0,
     });
     const [globalFilter, setGlobalFilter] = useState("");
+
+    useEffect(() => {
+        if (filter) {
+            setGlobalFilter(filter);
+        }
+    }, [filter]);
 
     const columns = React.useMemo<ColumnDef<TData>[]>(
         () =>
@@ -58,23 +69,31 @@ function GenericTable<TData extends object>({
     });
 
     return (
-        <div className="p-6 h-full w-full bg-neutral-100 dark:bg-gray-800 text-black dark:text-white rounded-xl">
-            <input
-                type="text"
-                value={globalFilter.toLowerCase() ?? ""}
-                onChange={(e) => setGlobalFilter(e.target.value)}
-                placeholder="Buscar..."
-                className="mb-4 p-2 border border-gray-300 rounded w-full"
-            />
+        <div className="p-6 h-full w-full bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white rounded-xl overflow-scroll">
+            <div className="rouded w-full border border-gray-300 mb-4 p-2 flex align-middle justify-between rounded">
+                <input
+                    type="text"
+                    value={globalFilter.toLowerCase() ?? ""}
+                    onChange={(e) => setGlobalFilter(e.target.value)}
+                    className="w-full bg-transparent h-full focus:outline-none focus:ring-0"
+                    placeholder="Buscar..."
+                />
+                {globalFilter !== "" && (
+                    <SquareX
+                        onClick={() => setGlobalFilter("")}
+                        className="cursor-pointer"
+                    />
+                )}
+            </div>
 
             <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50 dark:bg-slate-100">
+                <thead className="bg-gray-50 dark:bg-neutral-800">
                     {table.getHeaderGroups().map((headerGroup) => (
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map((header) => (
                                 <th
                                     key={header.id}
-                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     {flexRender(
                                         header.column.columnDef.header,
                                         header.getContext()
@@ -84,15 +103,15 @@ function GenericTable<TData extends object>({
                         </tr>
                     ))}
                 </thead>
-                <tbody className="bg-white dark:bg-black divide-y divide-gray-200">
+                <tbody className="bg-neutral-100 dark:bg-black divide-y divide-gray-200">
                     {table.getRowModel().rows.map((row) => (
                         <tr
                             key={row.id}
-                            className="hover:bg-gray-100 hover:dark:bg-slate-900">
+                            className="hover:bg-white hover:dark:bg-slate-900">
                             {row.getVisibleCells().map((cell) => (
                                 <td
                                     key={cell.id}
-                                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
                                     {flexRender(
                                         cell.column.columnDef.cell,
                                         cell.getContext()

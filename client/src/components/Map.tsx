@@ -12,7 +12,7 @@ interface MapProps {
 }
 
 const defaults = {
-    zoom: 13,
+    zoom: 8,
 };
 
 // TODO: get actual theme mode and switch between maps png
@@ -27,7 +27,7 @@ const Map = ({ zoom = defaults.zoom, positions }: MapProps) => {
             scrollWheelZoom={false}
             style={{ height: "100%", width: "100%" }}>
             <TileLayer
-                url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://carto.com/">CARTO</a>'
             />
             <Marker position={positions}>

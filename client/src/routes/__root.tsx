@@ -13,7 +13,7 @@ export const Route = createRootRoute({
             <div className="col-span-2 ">
                 <Navbar />
             </div>
-            <div className="col-span-2">
+            <div className="col-span-2 overflow-auto">
                 <Outlet />
             </div>
 
